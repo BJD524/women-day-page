@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>给老师的专属三八节祝福</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ---------- 自定义区域开始 ---------- */
+        :root {
+            --bg-image: url('https://images.unsplash.com/photo-1614854262318-831574f15f1e'); /* 替换成你的背景图链接 */
+            --text-color: #4a2c2a; /* 文字颜色 */
+            --card-bg: rgba(255, 255, 255, 0.9); /* 卡片背景透明度 */
+        }
+        /* ---------- 自定义区域结束 ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-image) center/cover no-repeat fixed;
+            font-family: '楷体', 'Microsoft YaHei', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .message p {
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>❤️ 致亲爱的XX老师 ❤️</h1>
+        <div class="message">
+            <!-- 以下祝福语可自由修改 -->
+            <p>敬爱的老师：</p >
+            <p>您是我高一时光里最温暖的阳光，感谢您课上的谆谆教导，更难忘那些我们一起踏青的春日...</p >
+            <p>您总说"读书如登山"，教会我坚持的意义。今天我想说：您就是那指引方向的山峰！</p >
+            <p>愿您永远保持灿烂的笑容，妇女节快乐！</p >
+            <p style="text-align: right; margin-top: 30px;">——您的学生：XXX</p >
+        </div>
+    </div>
+
+    <!-- 樱花飘落特效 -->
+    <script>
+        // 创建樱花飘落效果
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.innerHTML = '❀';
+            sakura.style.position = 'fixed';
+            sakura.style.left = Math.random() * 100 + 'vw';
+            sakura.style.animation = `fall ${Math.random() * 3 + 5}s linear infinite`;
+            sakura.style.opacity = Math.random();
+            document.body.appendChild(sakura);
+        }
+
+        // 每0.5秒生成一朵樱花
+        setInterval(createSakura, 500);
+
+        // 动态文字延迟显示
+        document.querySelectorAll('.message p').forEach((p, index) => {
+            p.style.animationDelay = `${index * 0.3}s`;
+        });
+    </script>
+</body>
+</html>
